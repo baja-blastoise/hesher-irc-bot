@@ -1,0 +1,28 @@
+This bot pulls information from The Metal Archives and returns it as IRC messages.
+
+Interact with this bot using the "!" character.  You can use the following commands:
+
+!help - displays this text
+
+!band [band name]|(###) - returns general information about a band; the |(###) is only necessary for disambiguation, will default to 0
+ex. !band Bolt Thrower     !band Bloodbath|233
+
+FOR DISAMBIGUATION - If you enter a prompt requiring further clarification, the bot will print a table of options with numbers
+
+!discog [band name]|(###), [type] - returns discography information; the |(###) is only necessary for disambiguation, will default to 0
+type defaults to main, [complete, main, live, demo, misc]
+ex. !discog Blood Incantation, main     !discog Wraith|3540437153
+
+!members [band name]|(###), [type] - returns list of band members; the |(###) is only necessary for disambiguation
+type defaults to either current or last known, options are: Current/Last known, Current (live), Past, Past (live)
+if you enter a type that does not exist, function will return current/last known
+ex. !members Cannibal Corpse, Past
+
+!similar [band name]|(###) - returns list of similar bands, with similarity ranking; the |(###) is only necessary for disambiguation
+ex. !similar Immortal|75
+
+!artist [artist name]|(###) - returns basic artist info and band membership, |(###) is for disambiguation
+ex. !artist David Davidson|3493
+
+!album [band name]:[album name]|(###) - returns album general info, track listing, and personel; |(###) is only for disambiguation
+ex. !album Baest:Necro Sapiens|914697
