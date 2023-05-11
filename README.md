@@ -29,7 +29,7 @@ Once you have finished configuring the bot, launch it in your terminal with:
 
 The bot will stay active as long as the process is active.
 
-The bot supports the following commands.  Detailed usage syntax with examples can be found in the help.txt file, or using the `!help` command in the IRC channel itsef.
+The bot supports the following commands.  Detailed usage syntax with examples can be found in the help.txt file, or using the `!help` command in the IRC channel itself.
 - **!help** - displays info contained in *help.txt*
 - **!band** - returns basic information about a band
 - **!discog** - returns a band's discograpy
