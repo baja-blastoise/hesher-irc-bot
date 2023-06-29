@@ -1,6 +1,6 @@
 import socket
 import time
-from malookup import BANDLOOKUP, DISCOGLOOKUP, MEMBERLOOKUP, SIMILAR, ARTISTLOOKUP, ALBUMLOOKUP
+from malookup import BANDLOOKUP, DISCOGLOOKUP, MEMBERLOOKUP, SIMILAR, ARTISTLOOKUP, ALBUMLOOKUP, RANDOM
 
 with open('config.txt') as f:
     lines = f.readlines()
@@ -243,12 +243,14 @@ while 1:
             else:
                 irc.send(bytes('PRIVMSG ' + channel +
                          ' ' + results + '\r\n', "UTF-8"))
+        t1 = time.time()
+        print(t1-t0)
 
     # artist lookup
     elif text.find(':!artist ') != -1:
         print('!artist command found')
         print(text)
-        to = time.time()
+        t0 = time.time()
         # artist number for disambiguation?  might come later
         if text.find('|') != -1:
             text = text.split('|')
@@ -280,6 +282,8 @@ while 1:
             else:
                 irc.send(bytes('PRIVMSG ' + channel +
                          ' ' + results + '\r\n', "UTF-8"))
+        t1 = time.time()
+        print(t1-t0)
 
     # album lookup
     elif text.find(':!album ') != -1:
@@ -323,3 +327,20 @@ while 1:
             else:
                 irc.send(bytes('PRIVMSG ' + channel +
                          ' ' + results + '\r\n', "UTF-8"))
+        t1 = time.time()
+        print(t1-t0)
+
+    # random band
+    elif text.find(':!random') != -1:
+        print('!random command found')
+        print(text)
+        t0 = time.time()
+        results = RANDOM(bprint)
+        if results.find('\n'):
+            results = results.split('\n')
+            for i in results:
+                irc.send(bytes('PRIVMSG ' + channel + ' ' + i + '\r\n', "UTF-8"))
+        else:
+            irc.send(bytes('PRIVMSG ' + channel + ' ' + results + '\r\n', "UTF-8"))
+        t1 = time.time()
+        print(t1-t0)
